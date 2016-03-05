@@ -4,9 +4,9 @@ import os
 #Alexa Settings
 ProductID = "AlexaPi"
 Security_Profile_Description ="this is for the raspberry pi"
-Security_Profile_ID  = "amzn1.application.af91743c21b1496d819f823326d93784"
-Client_ID = "amzn1.application-oa2-client.98a84ab527804bcb92dfd8f8f9496a2a"
-Client_Secret = "a28e838d221f8679d5f2dc66a0bfdbbde45520ecd450bec9f94a5ce5bf5d2a50"
+Security_Profile_ID  = ""
+Client_ID = ""
+Client_Secret = ""
 
 # Alexa Refresh Token
-refresh_token = 'Atzr|IQEBLzAtAhUAkLl9HImTB4r9nyMlC48b1kqkxpsCFElLmS9acMjcGT9K3DfK-Fa0kfwYDX2F9EJNEju1M6m4bEroOCezedysuuntT3ilEYLdLygteMLLAdqsSGeCxSw3AOhnLV9mLZ4v0d3dxhozhX-Pe1UvDIEubHksOnajzG418QgflFtxfUSSgJnQYZDfW7vqsATLpdFjCNJbytd9JgokfKSAlZqNtfL0X5VUUlNPGr03r9lTPpcNc-FuSzgOXFqGbOJB2BMjnGcC7y2Ek_nE0pjbTDwRr3rMGeSLczwzmQfe3YvUS3HscPPPqEEjGSTYu5PHiGKtrNzgknuAJpMtrHIvoQJ9fYkymLGSUQX41j_Ovg33gYCq3QvAtRORd9ZE6FoffoUqEYCHKNv7OhvV30A'
+refresh_token = '';
