@@ -111,30 +111,23 @@ def start():
 	last = GPIO.input(button)
 	while True:
 		val = GPIO.input(button)
-		if val != last:
-			last = val
-			if val == 1 and recorded == True:
-				rf = open(path+'recording.wav', 'w') 
-				rf.write(audio)
-				rf.close()
-				inp = None
-				alexa()
-			elif val == 0:
-				GPIO.output(25, GPIO.HIGH)
-				inp = alsaaudio.PCM(alsaaudio.PCM_CAPTURE, alsaaudio.PCM_NORMAL, device)
-				inp.setchannels(1)
-				inp.setrate(16000)
-				inp.setformat(alsaaudio.PCM_FORMAT_S16_LE)
-				inp.setperiodsize(500)
-				audio = ""
-				l, data = inp.read()
-				if l:
-					audio += data
-				recorded = True
-		elif val == 0:
+		GPIO.wait_for_edge(button, GPIO.FALLING) # we wait for the button to be pressed
+		GPIO.output(25, GPIO.HIGH)
+		inp = alsaaudio.PCM(alsaaudio.PCM_CAPTURE, alsaaudio.PCM_NORMAL, device)
+		inp.setchannels(1)
+		inp.setrate(16000)
+		inp.setformat(alsaaudio.PCM_FORMAT_S16_LE)
+		inp.setperiodsize(500)
+		audio = ""
+		while(GPIO.input(button)==0): # we keep recording while the button is pressed
 			l, data = inp.read()
 			if l:
 				audio += data
+		rf = open(path+'recording.wav', 'w')
+		rf.write(audio)
+		rf.close()
+		inp = None
+		alexa()
 	
 
 if __name__ == "__main__":
